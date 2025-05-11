@@ -1,68 +1,235 @@
-# CodeIgniter 4 Application Starter
 
-## What is CodeIgniter?
+  
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+# 🗂️ Sistema de Tarefas com Login - CodeIgniter 4
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+  
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+Este projeto é um sistema simples de gerenciamento de tarefas com autenticação de usuários, desenvolvido em **PHP com CodeIgniter 4**.
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+Ideal para portfólio de desenvolvedor Júnior ou estudo prático de CRUD, login e sessões.
 
-## Installation & updates
+  
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+---
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+  
 
-## Setup
+## 🚀 Funcionalidades
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+  
 
-## Important Change with index.php
+- Cadastro de usuários com senha criptografada
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
+- Login e logout com sessão
 
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
+- Cada usuário só vê suas próprias tarefas
 
-**Please** read the user guide for a better explanation of how CI4 works!
+- CRUD completo de tarefas
 
-## Repository Management
+- Proteção de rotas para usuários logados
 
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
+  
 
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
+---
 
-## Server Requirements
+  
 
-PHP version 8.1 or higher is required, with the following extensions installed:
+## 🛠️ Tecnologias Usadas
 
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
+  
 
-> [!WARNING]
-> - The end of life date for PHP 7.4 was November 28, 2022.
-> - The end of life date for PHP 8.0 was November 26, 2023.
-> - If you are still using PHP 7.4 or 8.0, you should upgrade immediately.
-> - The end of life date for PHP 8.1 will be December 31, 2025.
+- PHP 8+
 
-Additionally, make sure that the following extensions are enabled in your PHP:
+- CodeIgniter 4
 
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
+- MySQL
+
+- Bootstrap (opcional)
+
+- WSL (Linux no Windows)
+
+  
+
+---
+
+  
+
+## 🧭 Como Rodar o Projeto Localmente (Passo a Passo)
+
+  
+
+### ✅ 1. Clone o repositório
+
+  
+
+```bash
+
+git  clone  https://github.com/igor-exception/tarefas.git
+
+cd  tarefas
+
+```
+
+  
+
+---
+
+  
+
+### ✅ 2. Instale as dependências
+
+  
+
+```bash
+
+composer  install
+
+```
+
+  
+
+---
+
+  
+
+### ✅ 3. Configure o ambiente
+
+  
+
+```bash
+
+cp  env  .env
+
+nano  .env
+
+```
+
+  
+
+Edite os dados de conexão com o banco:
+
+  
+
+```dotenv
+
+database.default.hostname = localhost
+
+database.default.database = tarefas_ci4
+
+database.default.username = ci4user
+
+database.default.password = senha123
+
+```
+
+  
+
+---
+
+  
+
+### ✅ 4. Crie o banco de dados MySQL
+
+  
+
+Acesse o MySQL e execute os comandos abaixo:
+
+  
+
+```sql
+
+CREATE  DATABASE  tarefas_ci4  CHARACTER  SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+CREATE  USER 'ci4user'@'localhost' IDENTIFIED BY  'senha123';
+
+GRANT ALL PRIVILEGES ON tarefas_ci4.* TO  'ci4user'@'localhost';
+
+FLUSH PRIVILEGES;
+
+```
+
+  
+
+---
+
+  
+
+### ✅ 5. Rode as migrations
+
+  
+
+```bash
+
+php  spark  migrate
+
+```
+
+  
+
+---
+
+  
+
+### ✅ 6. Inicie o servidor local
+
+  
+
+```bash
+
+php  spark  serve
+
+```
+
+  
+
+Abra no navegador:
+
+  
+
+```
+
+http://localhost:8080
+
+```
+
+  
+
+---
+
+  
+
+### ✅ 7. Acesso rápido às páginas
+
+  
+
+- Registro: `/register`
+
+- Login: `/login`
+
+- Dashboard: `/dashboard`
+
+  
+
+---
+
+  
+
+## 👨‍💻 Autor
+
+  
+
+**Igor Oliveira**
+
+
+  
+
+---
+
+  
+
+## 📄 Licença
+
+  
+
+Este projeto é open-source para fins de aprendizado. Faça bom uso!
