@@ -45,8 +45,6 @@ Ideal para portfólio de desenvolvedor Júnior ou estudo prático de CRUD, login
 
 - MySQL
 
-- Bootstrap (opcional)
-
 - WSL (Linux no Windows)
 
   
