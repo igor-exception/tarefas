@@ -222,14 +222,3 @@ http://localhost:8080
 **Igor Oliveira**
 
 
-  
-
----
-
-  
-
-## 📄 Licença
-
-  
-
-Este projeto é open-source para fins de aprendizado. Faça bom uso!
