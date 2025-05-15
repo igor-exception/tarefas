@@ -199,14 +199,13 @@ http://localhost:8080
 
 ### ✅ 7. Acesso rápido às páginas
 
-  
-
-- Registro: `/register`
+- Cadastro de Usuário: `/user/form`
 
 - Login: `/login`
 
-- Dashboard: `/dashboard`
+- Painel restrito (após login): `/painel`
 
+- Logout: `/logout`
   
 
 ---
