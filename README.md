@@ -203,7 +203,7 @@ http://localhost:8080
 
 - Login: `/login`
 
-- Painel restrito (após login): `/painel`
+- Painel restrito (após login): `/dashboard`
 
 - Logout: `/logout`
   

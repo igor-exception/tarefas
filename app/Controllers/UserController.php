@@ -63,7 +63,7 @@ class UserController extends Controller
                 'username' => $user['username'],
                 'isLoggedIn' => true
             ]);
-            return redirect()->to('/painel');
+            return redirect()->to('/dashboard');
         }
 
         return redirect()->to('/login')->with('error', 'Email ou senha inválidos.');
@@ -75,8 +75,8 @@ class UserController extends Controller
         return redirect()->to('/login')->with('message', 'Você saiu com sucesso');
     }
 
-    public function painel()
+    public function dashboard()
     {
-        return view('painel');
+        return view('dashboard');
     }
 }
