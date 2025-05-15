@@ -12,4 +12,4 @@ $routes->post('user/store', 'UserController::store');
 $routes->get('login', 'UserController::loginForm');
 $routes->post('login', 'UserController::login');
 $routes->get('logout', 'UserController::logout');
-$routes->get('painel', 'UserController::painel');
+$routes->get('painel', 'UserController::painel', ['filter' => 'auth']);

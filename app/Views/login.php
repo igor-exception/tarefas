@@ -10,6 +10,10 @@
         <p style="color: red;"><?= session()->getFlashdata('error') ?></p>
     <?php endif; ?>
 
+    <?php if (session()->getFlashdata('message')): ?>
+        <p style="color: green;"><?= session()->getFlashdata('message') ?></p>
+    <?php endif; ?>
+
     <form method="post" action="/login">
         <label>Email:</label><br>
         <input type="email" name="email" required><br><br>
