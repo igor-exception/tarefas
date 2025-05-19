@@ -9,21 +9,6 @@ use CodeIgniter\Controller;
 
 class UserController extends Controller
 {
-    public function create()
-    {
-        $userModel = new UserModel();
-
-        $data = [
-            'username' => 'igor2',
-            'email'    => 'igor2@example.com',
-            'password' => password_hash('123456', PASSWORD_DEFAULT)
-        ];
-
-        $userModel->insert($data);
-
-        return "Usuário inserido com sucesso!";
-    }
-
     public function form()
     {
         return view('user_form');
