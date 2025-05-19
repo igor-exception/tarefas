@@ -206,6 +206,8 @@ http://localhost:8080
 - Painel restrito (após login): `/dashboard`
 
 - Logout: `/logout`
+
+- Logout: `/tasks`
   
 
 ---
