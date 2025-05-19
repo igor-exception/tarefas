@@ -207,7 +207,7 @@ http://localhost:8080
 
 - Logout: `/logout`
 
-- Logout: `/tasks`
+- Tarefas: `/tasks`
   
 
 ---
