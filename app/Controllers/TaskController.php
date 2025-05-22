@@ -79,7 +79,7 @@ class TaskController extends BaseController
         $taskModel = new TaskModel();
         $task = $taskModel->find($id);
 
-        if($task == null) {
+        if(!$task) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Tarefa não existe");
         }        
 
@@ -92,6 +92,30 @@ class TaskController extends BaseController
             return redirect()->to("/task/edit/$id")->with('error', 'Erro ao atualizar tarefa.');
         }
         return redirect()->to('/tasks')->with('message', 'Tarefa atualizada com sucesso!');
+    }
+
+    public function delete($id = null)
+    {
+        if(!session()->has('isLoggedIn')) {
+            return redirect()->to('/login');
+        }
+
+        $taskModel = new TaskModel();
+        $task = $taskModel->find($id);
+
+        if(session()->get('user_id') != $task['user_id']) {
+            return redirect()->to('/tasks')->with('error', 'Não é possível remover tarefa que não pertence a você.');
+        }
+
+        if(!$task) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Tarefa não existe");
+        }
+
+        if(!$taskModel->delete($id)) {
+            return redirect()->to('/tasks')->with('error', 'Não é possível remover tarefa.');
+        }
+
+        return redirect()->to('/tasks')->with('message', 'Tarefa removida com sucesso.');
     }
 
 }

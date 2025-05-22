@@ -15,7 +15,12 @@
     <?php if (!empty($tasks)): ?>
         <ul>
             <?php foreach ($tasks as $task): ?>
-                <li><strong><?= esc($task['title']) ?></strong> - <?= esc($task['description']) ?> <a href="/task/edit/<?= esc($task['id'])?>" value="<?= esc($task['id'])?>">Editar</a></li>
+                <li>
+                    <strong><?= esc($task['title']) ?></strong> - <?= esc($task['description']) ?> <a href="/task/edit/<?= esc($task['id'])?>" value="<?= esc($task['id'])?>">Editar</a>
+                    <form action="/task/delete/<?= esc($task['id']) ?>" method="post" style="display:inline;">
+                        <button type="submit" onclick="return confirm('Tem certeza que deseja excluir esta tarefa?')">Excluir</button>
+                    </form>
+                </li>
             <?php endforeach; ?>
         </ul>
     <?php else: ?>
