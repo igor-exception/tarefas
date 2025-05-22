@@ -1,9 +1,7 @@
 <?= view('layouts/header') ?>
     <h1>Cadastrar Novo Usuário</h1>
 
-    <?php if (session()->getFlashdata('message')): ?>
-        <p style="color: green;"><?= session()->getFlashdata('message') ?></p>
-    <?php endif; ?>
+    <?= view('layouts/alerts') ?>
 
     <form method="post" action="/user/store">
         <label for="username">Username:</label><br>

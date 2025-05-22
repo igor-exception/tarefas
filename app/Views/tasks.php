@@ -1,27 +1,36 @@
 <?= view('layouts/header') ?>
-    <h1>Minhas Tarefas</h1>
-    <?php if (session()->getFlashdata('error')): ?>
-        <p style="color: red;"><?= session()->getFlashdata('error') ?></p>
-    <?php endif; ?>
-
-    <?php if (session()->getFlashdata('message')): ?>
-        <p style="color: green;"><?= session()->getFlashdata('message') ?></p>
-    <?php endif; ?>
+    <h3>Minhas Tarefas</h3>
+    <?= view('layouts/alerts') ?>
     <?php if (!empty($tasks)): ?>
-        <ul>
-            <?php foreach ($tasks as $task): ?>
-                <li>
-                    <strong><?= esc($task['title']) ?></strong> - <?= esc($task['description']) ?> <a href="/task/edit/<?= esc($task['id'])?>" value="<?= esc($task['id'])?>">Editar</a>
-                    <form action="/task/delete/<?= esc($task['id']) ?>" method="post" style="display:inline;">
-                        <button type="submit" onclick="return confirm('Tem certeza que deseja excluir esta tarefa?')">Excluir</button>
-                    </form>
-                </li>
-            <?php endforeach; ?>
-        </ul>
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Título</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Opções</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($tasks as $n=>$task): ?>
+                        <tr>
+                            <th scope="row"><?= ($n+1) ?></th>
+                            <td><?= esc($task['title']) ?></td>
+                            <td><?= esc($task['description']) ?></td>
+                            <td><a href="/task/edit/<?= esc($task['id'])?>" value="<?= esc($task['id'])?>" class="btn btn-warning">Editar</a>
+                                <form action="/task/delete/<?= esc($task['id']) ?>" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta tarefa?')">Excluir</button>
+                                </form>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+
     <?php else: ?>
         <p>Nenhuma tarefa encontrada.</p>
     <?php endif; ?>
 
-    <p><a href="/tasks/create">+ Nova Tarefa</a></p>
+    <p><a href="/tasks/create" class="btn btn-primary">+ Nova Tarefa</a></p>
 
 <?= view('layouts/footer') ?>
