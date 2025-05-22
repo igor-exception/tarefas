@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Minhas Tarefas</title>
-</head>
-<body>
+<?= view('layouts/header') ?>
     <h1>Minhas Tarefas</h1>
     <?php if (session()->getFlashdata('error')): ?>
         <p style="color: red;"><?= session()->getFlashdata('error') ?></p>
@@ -29,5 +24,4 @@
 
     <p><a href="/tasks/create">+ Nova Tarefa</a></p>
 
-</body>
-</html>
+<?= view('layouts/footer') ?>

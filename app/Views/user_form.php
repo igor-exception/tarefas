@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Cadastrar Usuário</title>
-</head>
-<body>
+<?= view('layouts/header') ?>
     <h1>Cadastrar Novo Usuário</h1>
 
     <?php if (session()->getFlashdata('message')): ?>
@@ -22,5 +17,4 @@
 
         <button type="submit">Cadastrar</button>
     </form>
-</body>
-</html>
+<?= view('layouts/footer') ?>

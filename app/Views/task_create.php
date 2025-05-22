@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Nova Tarefa</title>
-</head>
-<body>
+<?= view('layouts/header') ?>
+
     <h1>Nova Tarefa</h1>
 
     <form action="/tasks/store" method="post">
@@ -17,5 +13,4 @@
     </form>
 
     <p><a href="/tasks">← Voltar para tarefas</a></p>
-</body>
-</html>
+<?= view('layouts/footer') ?>

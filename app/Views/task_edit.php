@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Edição de Tarefa</title>
-</head>
-<body>
+<?= view('layouts/header') ?>
     <h1>Editar Tarefa</h1>
 
     <form action="<?= base_url('/task/update')?>" method="post">
@@ -18,5 +13,4 @@
     </form>
 
     <p><a href="/tasks">← Voltar para tarefas</a></p>
-</body>
-</html>
+<?= view('layouts/footer') ?>
