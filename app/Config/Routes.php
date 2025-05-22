@@ -16,3 +16,5 @@ $routes->get('dashboard', 'UserController::dashboard', ['filter' => 'auth']);
 $routes->get('tasks', 'TaskController::index', ['filter' => 'auth']);
 $routes->get('tasks/create', 'TaskController::create', ['filter' => 'auth']);
 $routes->post('tasks/store', 'TaskController::store', ['filter' => 'auth']);
+$routes->get('task/edit/(:num)', 'TaskController::edit/$1', ['filter' => 'auth']);
+$routes->post('task/update', 'TaskController::update', ['filter' => 'auth']);
