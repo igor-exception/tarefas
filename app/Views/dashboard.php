@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Painel</title>
+    <title>Dashboard</title>
 </head>
 <body>
-    <h1>Bem-vindo, <?= session()->get('username') ?>!</h1>
-    <p>Você está logado e vendo uma área restrita.</p>
+    <h1>Bem-vindo, <?= esc(session()->get('username')) ?>!</h1>
 
-    <a href="/logout">Sair</a>
+    <ul>
+        <li><a href="/tasks">Ver minhas tarefas</a></li>
+        <li><a href="/tasks/create">Criar nova tarefa</a></li>
+        <li><a href="/logout">Sair</a></li>
+    </ul>
 </body>
 </html>
