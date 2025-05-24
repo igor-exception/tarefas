@@ -31,11 +31,36 @@ class UserController extends Controller
 
     public function loginForm()
     {
+        helper(['form']);
         return view('login');
     }
 
     public function login()
     {
+        helper(['form']);
+
+        $rules = [
+            'email' => "required|valid_email",
+            'password' => "required|min_length[6]"
+        ];
+
+        $messages = [
+            'email' => [
+                'required' => 'O campo Email é obrigatório.',
+                'valid_email' => 'Digite um email válido.'
+            ],
+            'password' => [
+                'required' => 'O campo Senha é obrigatório.',
+                'min_length' => 'A senha deve ter no mínimo 6 caracteres.'
+            ]
+        ];
+
+        if(!$this->validate($rules, $messages)) {
+            return redirect()->to('/login')
+                             ->with('validation', $this->validator)
+                             ->withInput();
+        }
+
         $email = $this->request->getPost('email');
         $password = $this->request->getPost('password');
 
@@ -51,7 +76,9 @@ class UserController extends Controller
             return redirect()->to('/dashboard');
         }
 
-        return redirect()->to('/login')->with('error', 'Email ou senha inválidos.');
+        return redirect()->to('/login')
+                         ->with('error', 'Email ou senha inválidos.')
+                         ->withInput();
     }
 
     public function logout()

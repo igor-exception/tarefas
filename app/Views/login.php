@@ -16,16 +16,24 @@
         </div>
 
         <div class="col-md-4">
+            
+            <?php if (session()->getFlashdata('validation')): ?>
+                <div class="alert alert-danger">
+                    <?= session()->getFlashdata('validation')->listErrors()?>
+                </div>
+            <?php endif; ?>
             <?= view('layouts/alerts') ?>
+
 
             <div class="card shadow">
                 <div class="card-body">
                     <h4 class="text-center mb-4">Login</h4>
 
-                    <form method="post" action="<?= base_url('/login') ?>">
+                    
+                    <?= form_open('/login')?>
                         <div class="mb-3">
                             <label for="email" class="form-label">E-mail</label>
-                            <input type="email" class="form-control" id="email" name="email" required>
+                            <input type="email" class="form-control" id="email" name="email" value="<?= set_value('email') ?>" required>
                         </div>
 
                         <div class="mb-3">
@@ -36,7 +44,7 @@
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary">Entrar</button>
                         </div>
-                    </form>
+                    <?= form_close() ?>
                 </div>
             </div>
 
