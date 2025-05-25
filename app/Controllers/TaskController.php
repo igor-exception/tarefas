@@ -26,14 +26,40 @@ class TaskController extends BaseController
 
     public function create()
     {
+        helper(['form']);
         return view('task_create');
     }
 
     public function store()
     {
+        helper(['form']);
         if(!session()->has('isLoggedIn')) {
             return redirect()->to('/login');
         }
+
+        $rules = [
+            'title' => 'required|min_length[2]',
+            'description' => 'max_length[255]',
+        ];
+
+        $messages = [
+            'title' => [
+                'required' => 'O campo Título é obrigatório',
+                'min_length' => 'O campo Título deve ter no mínimo 2 caracteres',
+            ],
+            'description' => [
+                'max_length' => 'O campo Descrição pode ter no máximo 255 caracteres'
+            ],
+        ];
+
+
+        if(!$this->validate($rules, $messages)){
+            return redirect()->to('tasks/create')
+                             ->with('validation', $this->validator)
+                             ->withInput();
+        }
+
+
         $taskModel = new TaskModel();
 
         $data = [
@@ -49,11 +75,16 @@ class TaskController extends BaseController
 
     public function edit($id=null)
     {
+        helper(['form']);
         if(!session()->has('isLoggedIn')){
             return redirect()->to('/login');
         }
+
         $taskModel = new TaskModel();
-        $task = $taskModel->find($id);
+        $task = $taskModel
+                    ->where('id', $id)
+                    ->where('user_id', session()->get('user_id'))
+                    ->first();
 
         if($task == null) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Tarefa não existe");
@@ -68,16 +99,41 @@ class TaskController extends BaseController
 
     public function update()
     {
+        helper(['form']);
         if(!session()->has('isLoggedIn')){
             return redirect()->to('/login');
         }
+
+        $rules = [
+            'title' => 'required|min_length[2]',
+            'description' => 'max_length[255]',
+        ];
+
+        $messages = [
+            'title' => [
+                'required' => 'O campo Título é obrigatório',
+                'min_length' => 'O campo Título deve ter no mínimo 2 caracteres',
+            ],
+            'description' => [
+                'max_length' => 'O campo Descrição pode ter no máximo 255 caracteres'
+            ],
+        ];
 
         $id = $this->request->getPost('id');
         $title = $this->request->getPost('title');
         $description = $this->request->getPost('description');
 
+        if(!$this->validate($rules, $messages)){
+            return redirect()->to("task/edit/$id")
+                             ->with('validation', $this->validator)
+                             ->withInput();
+        }
+
         $taskModel = new TaskModel();
-        $task = $taskModel->find($id);
+        $task = $taskModel
+                    ->where('id', $id)
+                    ->where('user_id', session()->get('user_id'))
+                    ->first();
 
         if(!$task) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound("Tarefa não existe");
