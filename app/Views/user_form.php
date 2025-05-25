@@ -15,6 +15,11 @@
         </div>
 
         <div class="col-md-6">
+            <?php if(session()->getFlashdata('validation')): ?>
+                <div class="alert alert-danger">
+                    <?= session()->getFlashdata('validation')->listErrors(); ?>
+                </div>
+            <?php endif; ?>
             <?= view('layouts/alerts') ?>
 
             <div class="card shadow">
@@ -26,11 +31,11 @@
 
                         <div class="mb-3">
                             <label for="UsernameControlInput1" class="form-label">Username: </label>
-                            <input type="text" class="form-control" id="UsernameControlInput1" placeholder="John Doe" name="username" <?= set_value('username')?> required>
+                            <input type="text" class="form-control" id="UsernameControlInput1" placeholder="John Doe" name="username" value="<?= set_value('username')?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="emailFormControl1" class="form-label">Email: </label>
-                            <input type="email" class="form-control" id="emailFormControl1" rows="3" name="email" placeholder="john.doe@gmail.com" <?= set_value('email') ?> required>
+                            <input type="email" class="form-control" id="emailFormControl1" rows="3" name="email" placeholder="john.doe@gmail.com" value="<?= set_value('email') ?>" required>
                         </div>
                         <div class="mb-3">
                             <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
