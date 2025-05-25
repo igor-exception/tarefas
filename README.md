@@ -1,216 +1,82 @@
+# 📝 Sistema de Tarefas com Login
 
-  
-
-# 🗂️ Sistema de Tarefas com Login - CodeIgniter 4
-
-  
-
-Este projeto é um sistema simples de gerenciamento de tarefas com autenticação de usuários, desenvolvido em **PHP com CodeIgniter 4**.
-
-Ideal para portfólio de desenvolvedor Júnior ou estudo prático de CRUD, login e sessões.
-
-  
-
----
-
-  
+Um sistema simples de gerenciamento de tarefas com autenticação de usuários, desenvolvido com CodeIgniter 4, PHP e MySQL.
 
 ## 🚀 Funcionalidades
 
-  
-
-- Cadastro de usuários com senha criptografada
-
-- Login e logout com sessão
-
-- Cada usuário só vê suas próprias tarefas
-
+- Cadastro e login de usuários com senha criptografada
 - CRUD completo de tarefas
+- Cada usuário visualiza apenas suas próprias tarefas
+- Validações de formulário com mensagens personalizadas
+- Proteção CSRF integrada
+- Interface responsiva com Bootstrap 5
 
-- Proteção de rotas para usuários logados
+## 🛠️ Tecnologias Utilizadas
 
-  
-
----
-
-  
-
-## 🛠️ Tecnologias Usadas
-
-  
-
-- PHP 8+
-
-- CodeIgniter 4
-
+- [CodeIgniter 4](https://codeigniter.com/)
+- PHP 8.x
 - MySQL
+- HTML5, CSS3 e Bootstrap 5
 
-- WSL (Linux no Windows)
+## 📦 Instalação
 
-  
+1. Clone o repositório:
 
----
+   ```bash
+   git clone https://github.com/igor-exception/tarefas.git
+   cd tarefas
+   ```
 
-  
+2. Instale as dependências com Composer:
 
-## 🧭 Como Rodar o Projeto Localmente (Passo a Passo)
+   ```bash
+   composer install
+   ```
 
-  
+3. Copie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente, especialmente as de conexão com o banco de dados.
 
-### ✅ 1. Clone o repositório
+4. Configure o banco de dados MySQL:
 
-  
+   - Crie um banco de dados chamado `tarefas`.
+   - Importe o arquivo `tarefas.sql` localizado na raiz do projeto.
 
-```bash
+5. Inicie o servidor de desenvolvimento do CodeIgniter:
 
-git  clone  https://github.com/igor-exception/tarefas.git
+   ```bash
+   php spark serve
+   ```
 
-cd  tarefas
+6. Acesse o sistema em `http://localhost:8080`.
 
-```
+## 🔐 Segurança
 
-  
+- Proteção contra CSRF ativada
+- Senhas armazenadas com `password_hash()`
+- Validações de entrada robustas
+- Controle de acesso baseado em sessão
 
----
+## 📸 Screenshots
 
-  
+### Tela de Login
+![Tela de Login](img_portfolio/ps_1.jpg)
 
-### ✅ 2. Instale as dependências
+### Confirmação de Logout
+![Confirmação de Logout](img_portfolio/ps_2.jpg)
 
-  
+### Cadastro de Usuário
+![Cadastro de Usuário](img_portfolio/ps_3.jpg)
 
-```bash
+### Dashboard
+![Dashboard](img_portfolio/ps_4.jpg)
 
-composer  install
+### Nova Tarefa
+![Nova Tarefa](img_portfolio/ps_5.jpg)
 
-```
+### Minhas Tarefas
+![Minhas Tarefas](img_portfolio/ps_6.jpg)
 
-  
-
----
-
-  
-
-### ✅ 3. Configure o ambiente
-
-  
-
-```bash
-
-cp  env  .env
-
-nano  .env
-
-```
-
-  
-
-Edite os dados de conexão com o banco:
-
-  
-
-```dotenv
-
-database.default.hostname = localhost
-
-database.default.database = tarefas_ci4
-
-database.default.username = ci4user
-
-database.default.password = senha123
-
-```
-
-  
-
----
-
-  
-
-### ✅ 4. Crie o banco de dados MySQL
-
-  
-
-Acesse o MySQL e execute os comandos abaixo:
-
-  
-
-```sql
-
-CREATE  DATABASE  tarefas_ci4  CHARACTER  SET utf8mb4 COLLATE utf8mb4_general_ci;
-
-CREATE  USER 'ci4user'@'localhost' IDENTIFIED BY  'senha123';
-
-GRANT ALL PRIVILEGES ON tarefas_ci4.* TO  'ci4user'@'localhost';
-
-FLUSH PRIVILEGES;
-
-```
-
-  
-
----
-
-  
-
-### ✅ 5. Rode as migrations
-
-  
-
-```bash
-
-php  spark  migrate
-
-```
-
-  
-
----
-
-  
-
-### ✅ 6. Inicie o servidor local
-
-  
-
-```bash
-
-php  spark  serve
-
-```
-
-  
-
-Abra no navegador:
-
-  
-
-```
-
-http://localhost:8080
-
-```
-
-  
-
----
-
-  
-
-### ✅ 7. Acesso rápido às páginas
-
-- Cadastro de Usuário: `/user/form`
-
-- Login: `/login`
-
-- Painel restrito (após login): `/dashboard`
-
-- Logout: `/logout`
-
-- Tarefas: `/tasks`
-  
-
----
+### Edição de Tarefa
+![Edição de Tarefa](img_portfolio/ps_7.jpg)
 
   
 
