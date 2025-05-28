@@ -1,3 +1,4 @@
+
 # 📝 Sistema de Tarefas com Login
 
 Um sistema simples de gerenciamento de tarefas com autenticação de usuários, desenvolvido com CodeIgniter 4, PHP e MySQL.
@@ -33,20 +34,55 @@ Um sistema simples de gerenciamento de tarefas com autenticação de usuários, 
    composer install
    ```
 
-3. Copie o arquivo `.env.example` para `.env` e configure as variáveis de ambiente, especialmente as de conexão com o banco de dados.
+3. Configure as variáveis de ambiente:
 
-4. Configure o banco de dados MySQL:
+   - Copie o arquivo `.env.example` para `.env`:
 
-   - Crie um banco de dados chamado `tarefas`.
-   - Importe o arquivo `tarefas.sql` localizado na raiz do projeto.
+     ```bash
+     cp .env.example .env
+     ```
 
-5. Inicie o servidor de desenvolvimento do CodeIgniter:
+   - Edite o `.env` com as credenciais do seu banco de dados MySQL.
+
+4. Crie o banco de dados (necessário antes de rodar as migrations):
+
+   ```bash
+   mysql -u SEU_USUARIO -p < create_database.sql
+   ```
+
+5. Execute as migrations para criar as tabelas:
+
+   ```bash
+   php spark migrate
+   ```
+
+6. Inicie o servidor de desenvolvimento do CodeIgniter:
 
    ```bash
    php spark serve
    ```
 
-6. Acesse o sistema em `http://localhost:8080`.
+7. Acesse o sistema em `http://localhost:8080`.
+
+## 📊 Dados de Exemplo (opcional)
+
+Se você quiser importar um banco já com usuários e tarefas cadastradas para testes, use o arquivo `tarefas_portfolio.sql`. Esse arquivo sobrescreve tudo (estrutura e dados).
+
+> ⚠️ **Atenção**: isso irá substituir as tabelas e dados atuais.
+
+1. Certifique-se de que o banco `tarefas_portfolio` existe (use `create_database.sql` se necessário):
+
+   ```bash
+   mysql -u SEU_USUARIO -p < create_database.sql
+   ```
+
+2. Importe o banco completo com dados de exemplo:
+
+   ```bash
+   mysql -u SEU_USUARIO -p tarefas_portfolio < tarefas_portfolio.sql
+   ```
+
+> ✅ Após isso, **não é necessário rodar `php spark migrate`**, pois as tabelas já estarão criadas com dados.
 
 ## 🔐 Segurança
 
@@ -78,12 +114,6 @@ Um sistema simples de gerenciamento de tarefas com autenticação de usuários, 
 ### Edição de Tarefa
 ![Edição de Tarefa](img_portfolio/ps_7.jpg)
 
-  
-
 ## 👨‍💻 Autor
 
-  
-
 **Igor Oliveira**
-
-
