@@ -84,6 +84,16 @@ Se você quiser importar um banco já com usuários e tarefas cadastradas para t
 
 > ✅ Após isso, **não é necessário rodar `php spark migrate`**, pois as tabelas já estarão criadas com dados.
 
+### 👤 Contas de Acesso de Exemplo
+
+Após importar o banco com dados de exemplo, você poderá acessar o sistema com as seguintes contas:
+
+- **Usuário:** john@example.com  
+  **Senha:** 123123
+
+- **Usuário:** mary@gmail.com  
+  **Senha:** 123123
+
 ## 🔐 Segurança
 
 - Proteção contra CSRF ativada
