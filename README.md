@@ -1,105 +1,95 @@
+# ✅ Sistema de Tarefas - CodeIgniter 4
 
-# 📝 Sistema de Tarefas com Login
+Um sistema simples e funcional de controle de tarefas, desenvolvido com **PHP + CodeIgniter 4**, com foco em boas práticas, autenticação segura e CRUD completo.
 
-Um sistema simples de gerenciamento de tarefas com autenticação de usuários, desenvolvido com CodeIgniter 4, PHP e MySQL.
+📌 **Acesse o sistema online:**  
+👉 [https://iosystems.com.br/tarefas](https://iosystems.com.br/tarefas)
 
-## 🚀 Funcionalidades
+---
 
-- Cadastro e login de usuários com senha criptografada
-- CRUD completo de tarefas
+## ✨ Funcionalidades
+
+- Cadastro e login de usuários com senha criptografada (bcrypt)
 - Cada usuário visualiza apenas suas próprias tarefas
-- Validações de formulário com mensagens personalizadas
-- Proteção CSRF integrada
-- Interface responsiva com Bootstrap 5
+- CRUD completo de tarefas (criar, editar, excluir, listar)
+- Interface simples e responsiva com HTML + Bootstrap
+- Validações com mensagens amigáveis
+- Proteção CSRF ativada
+- Sistema 100% funcional e publicado com domínio próprio + HTTPS
 
-## 🛠️ Tecnologias Utilizadas
+---
 
-- [CodeIgniter 4](https://codeigniter.com/)
-- PHP 8.x
-- MySQL
-- HTML5, CSS3 e Bootstrap 5
+## 🔧 Tecnologias Utilizadas
 
-## 📦 Instalação
+- **PHP 8.1**
+- **CodeIgniter 4.6**
+- **MySQL**
+- **Bootstrap 5**
+- **Apache 2 + Let's Encrypt (SSL gratuito)**
+- **Linux Ubuntu VPS**
+
+---
+
+## 📂 Estrutura do Projeto
+
+```
+/app
+    /Controllers
+    /Models
+    /Views
+/public
+    index.php
+    favicon.ico
+/writable
+.env
+```
+
+---
+
+## 🚀 Como rodar localmente
 
 1. Clone o repositório:
 
-   ```bash
-   git clone https://github.com/igor-exception/tarefas.git
-   cd tarefas
-   ```
+```bash
+git clone https://github.com/igor-exception/tarefas.git
+```
 
 2. Instale as dependências com Composer:
 
-   ```bash
-   composer install
-   ```
+```bash
+composer install
+```
 
-3. Configure as variáveis de ambiente:
+3. Copie o arquivo `.env.example`:
 
-   - Copie o arquivo `.env.example` para `.env`:
+```bash
+cp env .env
+```
 
-     ```bash
-     cp .env.example .env
-     ```
+4. Configure o banco de dados no `.env`:
 
-   - Edite o `.env` com as credenciais do seu banco de dados MySQL.
+```
+database.default.hostname = localhost
+database.default.database = tarefas
+database.default.username = root
+database.default.password = yourpassword
+```
 
-4. Crie o banco de dados (necessário antes de rodar as migrations):
+5. Rode as migrations:
 
-   ```bash
-   mysql -u SEU_USUARIO -p < create_database.sql
-   ```
+```bash
+php spark migrate
+```
 
-5. Execute as migrations para criar as tabelas:
+6. Inicie o servidor local:
 
-   ```bash
-   php spark migrate
-   ```
+```bash
+php spark serve
+```
 
-6. Inicie o servidor de desenvolvimento do CodeIgniter:
+Acesse: `http://localhost:8080`
 
-   ```bash
-   php spark serve
-   ```
-
-7. Acesse o sistema em `http://localhost:8080`.
-
-## 📊 Dados de Exemplo (opcional)
-
-Se você quiser importar um banco já com usuários e tarefas cadastradas para testes, use o arquivo `tarefas_portfolio.sql`. Esse arquivo sobrescreve tudo (estrutura e dados).
-
-> ⚠️ **Atenção**: isso irá substituir as tabelas e dados atuais.
-
-1. Certifique-se de que o banco `tarefas_portfolio` existe (use `create_database.sql` se necessário):
-
-   ```bash
-   mysql -u SEU_USUARIO -p < create_database.sql
-   ```
-
-2. Importe o banco completo com dados de exemplo:
-
-   ```bash
-   mysql -u SEU_USUARIO -p tarefas_portfolio < tarefas_portfolio.sql
-   ```
-
-> ✅ Após isso, **não é necessário rodar `php spark migrate`**, pois as tabelas já estarão criadas com dados.
-
-### 👤 Contas de Acesso de Exemplo
-
-Após importar o banco com dados de exemplo, você poderá acessar o sistema com as seguintes contas:
-
-- **Usuário:** john@example.com  
-  **Senha:** 123123
-
-- **Usuário:** mary@gmail.com  
-  **Senha:** 123123
-
-## 🔐 Segurança
-
-- Proteção contra CSRF ativada
-- Senhas armazenadas com `password_hash()`
-- Validações de entrada robustas
-- Controle de acesso baseado em sessão
+---
 
 ## 📸 Screenshots
 
@@ -124,6 +114,15 @@ Após importar o banco com dados de exemplo, você poderá acessar o sistema com
 ### Edição de Tarefa
 ![Edição de Tarefa](img_portfolio/ps_7.jpg)
 
-## 👨‍💻 Autor
+---
 
-**Igor Oliveira**
+## 👤 Autor
+
+**Igor Oliveira**  
+🔗 [https://iosystems.com.br](https://iosystems.com.br)
+
+---
+
+## 📝 Licença
+
+Projeto livre para fins de aprendizado. Sinta-se à vontade para usar como base para seus estudos ou portfólio.
