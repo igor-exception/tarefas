@@ -28,5 +28,5 @@
 
 
 
-    <p class="lead"><a href="/tasks">← Voltar para tarefas</a></p>
+    <p class="lead"><a href="<?= site_url('/tasks') ?>">← Voltar para tarefas</a></p>
 <?= view('layouts/footer') ?>

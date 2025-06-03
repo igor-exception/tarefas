@@ -11,10 +11,10 @@
         <header class="mb-4">
             <h2>Sistema de Tarefas</h2>
             <nav class="mb-2">
-                <a href="/dashboard" class="btn btn-sm btn-outline-primary">Dashboard</a>
-                <a href="/tasks" class="btn btn-sm btn-outline-primary">Minhas Tarefas</a>
-                <a href="/tasks/create" class="btn btn-sm btn-outline-success">Nova Tarefa</a>
-                <a href="/logout" class="btn btn-sm btn-outline-danger">Sair</a>
+                <a href="<?= site_url('dashboard') ?>" class="btn btn-sm btn-outline-primary">Dashboard</a>
+                <a href="<?= site_url('tasks') ?>" class="btn btn-sm btn-outline-primary">Minhas Tarefas</a>
+                <a href="<?= site_url('/tasks/create') ?>" class="btn btn-sm btn-outline-success">Nova Tarefa</a>
+                <a href="<?= site_url('/logout') ?>" class="btn btn-sm btn-outline-danger">Sair</a>
             </nav>
             <hr>
         </header>

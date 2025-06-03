@@ -6,9 +6,9 @@
         O que deseja fazer?
     </div>
     <ul class="list-group list-group-flush">
-        <li class="list-group-item"><a href="/tasks">Ver minhas tarefas</a></li>
-        <li class="list-group-item"><a href="/tasks/create">Criar nova tarefa</a></li>
-        <li class="list-group-item"><a href="/logout">Sair</a></li>
+        <li class="list-group-item"><a href="<?= site_url('tasks') ?>">Ver minhas tarefas</a></li>
+        <li class="list-group-item"><a href="<?= site_url('/tasks/create') ?>">Criar nova tarefa</a></li>
+        <li class="list-group-item"><a href="<?= site_url('/logout') ?>">Sair</a></li>
     </ul>
     </div>
 <?= view('layouts/footer') ?>

@@ -31,6 +31,6 @@
         <p>Nenhuma tarefa encontrada.</p>
     <?php endif; ?>
 
-    <p><a href="/tasks/create" class="btn btn-primary">+ Nova Tarefa</a></p>
+    <p><a class="btn btn-primary" href="<?= site_url('/tasks/create') ?>">+ Nova Tarefa</a></p>
 
 <?= view('layouts/footer') ?>

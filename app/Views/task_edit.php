@@ -24,5 +24,5 @@
 
 
 
-    <p><a href="/tasks">← Voltar para tarefas</a></p>
+    <p><a href="<?= site_url('/tasks') ?>">← Voltar para tarefas</a></p>
 <?= view('layouts/footer') ?>
