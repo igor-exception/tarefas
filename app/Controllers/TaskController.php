@@ -11,6 +11,7 @@ class TaskController extends BaseController
 {
     public function index()
     {
+        helper(['form']);
         if(!session()->get('isLoggedIn')) {
             return redirect()->to('/login');
         }

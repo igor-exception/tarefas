@@ -18,9 +18,9 @@
                             <td><?= esc($task['title']) ?></td>
                             <td><?= esc($task['description']) ?></td>
                             <td><a href="<?= site_url('/task/edit/'. esc($task['id'])) ?>" value="<?= esc($task['id'])?>" class="btn btn-warning">Editar</a>
-                                <form action="<?= site_url('/task/delete/' . esc($task['id'])) ?>" method="post" style="display:inline;">
+                            <?= form_open(site_url('/task/delete/' . esc($task['id'])), ['method' => 'post', 'style' => "display:inline;"]) ?>
                                     <button type="submit" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta tarefa?')">Excluir</button>
-                                </form>
+                            <? form_close() ?>
                             </td>
                         </tr>
                     <?php endforeach; ?>
